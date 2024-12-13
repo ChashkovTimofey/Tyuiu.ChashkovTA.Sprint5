@@ -22,6 +22,7 @@ namespace Tyuiu.ChashkovTA.Sprint5.Task7.V25.Lib
                 foreach (var line in lines)
                 {
                     var modifiedLine = englishWordPattern.Replace(line, string.Empty);
+                    modifiedLine = Regex.Replace(modifiedLine, @"\s+", " ").Trim(); // Убираем лишние пробелы
                     resultLines.Add(modifiedLine);
                 }
 
