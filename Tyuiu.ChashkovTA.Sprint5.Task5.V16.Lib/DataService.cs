@@ -44,5 +44,19 @@ namespace Tyuiu.ChashkovTA.Sprint5.Task5.V16.Lib
             // Возвращаем максимальное число, которое делится на 10
             return maxDivisibleByTen;
         }
+        public static void Main()
+        {
+            // Создаём объект класса
+            DataService finder = new DataService();
+
+            // Указываем путь к файлу
+            string path = Path.Combine("C:\\DataSprint5", "InPutDataFileTask5V16.txt");
+
+            // Вызываем метод для поиска результата
+            double result = finder.LoadFromDataFile(path);
+
+            // Выводим результат на консоль
+            Console.WriteLine($"Максимальное число, делящееся на 10: {result}");
+        }
     }
 }
