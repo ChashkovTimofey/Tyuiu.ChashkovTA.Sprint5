@@ -23,6 +23,7 @@ namespace Tyuiu.ChashkovTA.Sprint5.Task7.V25.Lib
                 {
                     var modifiedLine = englishWordPattern.Replace(line, string.Empty);
                     modifiedLine = Regex.Replace(modifiedLine, @"\s+", " ").Trim(); // Убираем лишние пробелы
+                    modifiedLine = Regex.Replace(modifiedLine, @"\s([?.!,;])", "$1"); // Убираем пробел перед знаками препинания
                     resultLines.Add(modifiedLine);
                 }
 
