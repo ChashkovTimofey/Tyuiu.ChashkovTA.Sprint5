@@ -35,5 +35,13 @@ namespace Tyuiu.ChashkovTA.Sprint5.Task1.V6.Lib
 
             return $"Результаты сохранены в файл: {filePath}";
         }
+        public static void Main()
+        {
+            DataService calculator = new DataService();
+
+            string resultMessage = calculator.SaveToFileTextData(-5, 5);
+
+            Console.WriteLine(resultMessage);
+        }
     }
 }
