@@ -21,8 +21,8 @@ namespace Tyuiu.ChashkovTA.Sprint5.Task5.V16.Lib
                         // Округляем вещественные значения до 3 знаков после запятой
                         number = Math.Round(number, 3);
 
-                        // Проверяем, является ли число целым и делится ли на 10
-                        if (number % 10 == 0 && number > maxDivisibleByTen)
+                        // Проверяем, является ли число делится на 10
+                        if (number % 10 == 0 && number >= maxDivisibleByTen)
                         {
                             maxDivisibleByTen = number;
                         }
