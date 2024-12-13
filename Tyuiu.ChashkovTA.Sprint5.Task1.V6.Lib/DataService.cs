@@ -8,9 +8,7 @@ namespace Tyuiu.ChashkovTA.Sprint5.Task1.V6.Lib
     {
         public string SaveToFileTextData(int startValue, int stopValue)
         {
-            // Метод для вычисления функции и формирования строки с результатами
-            public string SaveToFileTextData(int startValue, int stopValue)
-            {
+
                 // Используем StringBuilder для формирования строки с результатами
                 StringBuilder resultString = new StringBuilder();
 
