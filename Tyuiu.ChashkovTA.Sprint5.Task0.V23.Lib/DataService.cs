@@ -6,7 +6,12 @@ namespace Tyuiu.ChashkovTA.Sprint5.Task0.V23.Lib
     {
         public string SaveToFileTextData(int x)
         {
-            double result = (1 + Math.Pow(x, 3)) / x*x;
+            if (x == 0)
+            {
+                return "Ошибка: деление на ноль!";
+            }
+
+            double result = Math.Pow(1 + x, 3) / Math.Pow(x, 2);
 
             result = Math.Round(result, 3);
 
