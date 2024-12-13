@@ -22,7 +22,7 @@ namespace Tyuiu.ChashkovTA.Sprint5.Task5.V16.Lib
                         number = Math.Round(number, 3);
 
                         // Проверяем, является ли число делится на 10
-                        if (number % 10 == 0 && number >= maxDivisibleByTen)
+                        if (number % 10 == 0 && number > maxDivisibleByTen)
                         {
                             maxDivisibleByTen = number;
                         }
@@ -44,6 +44,7 @@ namespace Tyuiu.ChashkovTA.Sprint5.Task5.V16.Lib
             // Возвращаем максимальное число, которое делится на 10
             return maxDivisibleByTen;
         }
+
         public static void Main()
         {
             // Создаём объект класса
