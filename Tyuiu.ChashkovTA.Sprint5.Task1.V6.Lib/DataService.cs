@@ -8,30 +8,44 @@ namespace Tyuiu.ChashkovTA.Sprint5.Task1.V6.Lib
     {
         public string SaveToFileTextData(int startValue, int stopValue)
         {
-            StringBuilder resultString = new StringBuilder();
-
-            var cultureInfo = new CultureInfo("ru-RU");
-
-            for (int x = startValue; x <= stopValue; x++)
+            // Метод для вычисления функции и формирования строки с результатами
+            public string SaveToFileTextData(int startValue, int stopValue)
             {
+                // Используем StringBuilder для формирования строки с результатами
+                StringBuilder resultString = new StringBuilder();
 
-                double result;
+                // Используем культуру с запятой в качестве десятичного разделителя
+                var cultureInfo = new CultureInfo("ru-RU");
 
-                try
+                // Массив для хранения значений x и F(x)
+                for (int x = startValue; x <= stopValue; x++)
                 {
-                    result = Math.Cos(x) + (4 * x) / 2 - Math.Sin(x) * 3 * x;
-                    result = Math.Round(result, 2); 
-                }
-                catch (DivideByZeroException)
-                {
-                    result = 0; 
+                    // Вычисляем функцию
+                    double result;
+
+                    try
+                    {
+                        result = Math.Cos(x) + (4 * x) / 2 - Math.Sin(x) * 3 * x;
+                        result = Math.Round(result, 2); // Округляем до 2 знаков после запятой
+                    }
+                    catch (DivideByZeroException)
+                    {
+                        result = 0; // Если деление на ноль, возвращаем 0
+                    }
+
+                    // Добавляем результат в строку, используя нужный формат
+                    resultString.Append(result.ToString(cultureInfo));
+
+                    // Добавляем разделитель новой строки, если это не последний элемент
+                    if (x < stopValue)
+                    {
+                        resultString.AppendLine();
+                    }
                 }
 
-                resultString.AppendLine(result.ToString(cultureInfo));
+                // Возвращаем строку с результатами
+                return resultString.ToString();
             }
-
-            return resultString.ToString();
-        }
 
     }
 }
