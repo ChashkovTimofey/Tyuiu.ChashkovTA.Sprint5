@@ -41,5 +41,19 @@ namespace Tyuiu.ChashkovTA.Sprint5.Task4.V27.Lib
             // Возвращаем результат
             return result;
         }
+        public static void Main()
+        {
+            // Создаём объект класса
+            DataService calculator = new DataService();
+
+            // Указываем путь к файлу
+            string path = Path.Combine("C:\\DataSprint5", "InPutDataFileTask4V0.txt");
+
+            // Вызываем метод для вычисления результата
+            double result = calculator.LoadFromDataFile(path);
+
+            // Выводим результат на консоль
+            Console.WriteLine($"Результат: {result}"); 
+        }
     }
 }
