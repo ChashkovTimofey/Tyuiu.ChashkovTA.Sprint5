@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text;
 using tyuiu.cources.programming.interfaces.Sprint5;
 
 namespace Tyuiu.ChashkovTA.Sprint5.Task1.V6.Lib
@@ -7,41 +8,30 @@ namespace Tyuiu.ChashkovTA.Sprint5.Task1.V6.Lib
     {
         public string SaveToFileTextData(int startValue, int stopValue)
         {
-            string filePath = Path.Combine(Path.GetTempPath(), "OutPutFileTask1.txt");
+            StringBuilder resultString = new StringBuilder();
 
-            using (StreamWriter writer = new StreamWriter(filePath))
+            var cultureInfo = new CultureInfo("ru-RU");
+
+            for (int x = startValue; x <= stopValue; x++)
             {
-                var cultureInfo = new CultureInfo("ru-RU");
 
-                for (int x = startValue; x <= stopValue; x++)
+                double result;
+
+                try
                 {
-                    double result;
-
-                    try
-                    {
-                        result = Math.Cos(x) + (4 * x) / 2 - Math.Sin(x) * 3 * x;
-                        result = Math.Round(result, 2); 
-                    }
-                    catch (DivideByZeroException)
-                    {
-                        result = 0; 
-                    }
-
-                    writer.WriteLine(result.ToString(cultureInfo));
-
-                    Console.WriteLine(result.ToString(cultureInfo));
+                    result = Math.Cos(x) + (4 * x) / 2 - Math.Sin(x) * 3 * x;
+                    result = Math.Round(result, 2); 
                 }
+                catch (DivideByZeroException)
+                {
+                    result = 0; 
+                }
+
+                resultString.AppendLine(result.ToString(cultureInfo));
             }
 
-            return $"Результаты сохранены в файл: {filePath}";
+            return resultString.ToString();
         }
-        public static void Main()
-        {
-            DataService calculator = new DataService();
 
-            string resultMessage = calculator.SaveToFileTextData(-5, 5);
-
-            Console.WriteLine(resultMessage);
-        }
     }
 }
